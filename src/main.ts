@@ -322,7 +322,7 @@ export const main = async () => {
             owner: context.repo.owner,
             repo: context.repo.repo,
             tag_name: releaseTag, // eslint-disable-line @typescript-eslint/camelcase
-            name: args.automaticReleaseTag && args.releaseTitle ? args.releaseTitle : releaseTag,
+            name: args.releaseTitle ? args.releaseTitle : releaseTag,
             draft: args.draftRelease,
             prerelease: args.preRelease,
             body: changelog,

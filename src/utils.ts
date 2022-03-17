@@ -149,7 +149,11 @@ export const generateChangelogFromParsedCommits = (parsedCommits: ParsedCommits[
         changelog += commits.trim();
     }
 
-    return changelog.trim();
+    if (changelog) {
+        changelog = changelog.trim()
+    }
+
+    return changelog;
 };
 
 export const isBreakingChange = ({body, footer}): boolean => {

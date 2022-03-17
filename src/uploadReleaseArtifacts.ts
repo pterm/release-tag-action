@@ -31,7 +31,7 @@ export const uploadReleaseArtifacts = async (client: github.GitHub, uploadUrl: s
       const hash = await md5File(filePath);
       const basename = path.basename(filePath, path.extname(filePath));
       const ext = path.extname(filePath);
-      const newName = ext ? `${basename}-${hash}.${ext}` : `${basename}-${hash}`;
+      const newName = `${basename}-${hash}${ext}`;
       await client.repos.uploadReleaseAsset({
         ...uploadArgs,
         name: newName,

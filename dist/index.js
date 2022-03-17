@@ -50387,7 +50387,10 @@ exports.generateChangelogFromParsedCommits = (parsedCommits) => {
         changelog += '\n\n## Commits\n';
         changelog += commits.trim();
     }
-    return changelog.trim();
+    if (changelog) {
+        changelog = changelog.trim();
+    }
+    return changelog;
 };
 exports.isBreakingChange = ({ body, footer }) => {
     const re = /^BREAKING\s+CHANGES?:\s+/;
