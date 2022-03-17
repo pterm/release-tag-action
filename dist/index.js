@@ -49679,9 +49679,11 @@ function parser (raw, options, regex) {
     merge = mergeMatch[0]
 
     header = lines.shift()
-    while (!header.trim()) {
-      header = lines.shift()
-    }
+      if (header) {
+          while (!header.trim()) {
+              header = lines.shift()
+          }
+      }
 
     _.forEach(mergeCorrespondence, function (partName, index) {
       var partValue = mergeMatch[index + 1] || null
@@ -49954,7 +49956,7 @@ inherits(DestroyableTransform, Transform)
 DestroyableTransform.prototype.destroy = function(err) {
   if (this._destroyed) return
   this._destroyed = true
-  
+
   var self = this
   process.nextTick(function() {
     if (err)
